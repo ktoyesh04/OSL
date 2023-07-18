@@ -8,7 +8,7 @@ void main(){
     char buff[100];
     printf("Pipe is created\x1B");
     if(pipe(fd)==-1) perror("Error in creating pipe");
-    if((pid==fork())==-1) perror("Error in fork");
+    if((pid=fork())==-1) perror("Error in fork");
     if(pid>0){
         close(fd[0]);
         write(fd[1], "\x1B Parent writing data into buffer", 50);
